@@ -39,7 +39,7 @@ export default function UserDashboard() {
         email,
         vehicleNumber: vehicle_number,
       });
-      const userUrl = `http://localhost:8080/user/info?${userParams}`;
+      const userUrl = `https://be-project-pyax.onrender.com/user/info?${userParams}`;
 
       const userResponse = await fetch(userUrl);
 
@@ -53,7 +53,7 @@ export default function UserDashboard() {
       console.log(userData);
 
       // Second request - vehicle history
-      const vehicleUrl = `http://localhost:8080/vehicle/${vehicle_number}/history`;
+      const vehicleUrl = `https://be-project-pyax.onrender.com/vehicle/${vehicle_number}/history`;
       const vehicleResponse = await fetch(vehicleUrl);
 
       if (!vehicleResponse.ok) {

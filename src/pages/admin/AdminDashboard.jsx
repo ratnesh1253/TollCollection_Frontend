@@ -16,7 +16,7 @@ export default function AdminDashboard() {
       // Fetch admin data
       const encodedEmail = encodeURIComponent(email);
       const adminResponse = await fetch(
-        `http://localhost:8080/admin/${encodedEmail}`
+        `https://be-project-pyax.onrender.com/admin/${encodedEmail}`
       );
 
       if (!adminResponse.ok) {
@@ -29,7 +29,7 @@ export default function AdminDashboard() {
 
       // Fetch geofences data
       const geofenceResponse = await fetch(
-        "http://localhost:8080/geofence/show"
+        "https://be-project-pyax.onrender.com/geofence/show"
       );
 
       if (!geofenceResponse.ok) {
@@ -100,7 +100,7 @@ export default function AdminDashboard() {
     try {
       const encodedEmail = encodeURIComponent(email);
       const adminResponse = await fetch(
-        `http://localhost:8080/admin/${encodedEmail}`
+        `https://be-project-pyax.onrender.com/admin/${encodedEmail}`
       );
 
       if (!adminResponse.ok) {
@@ -109,8 +109,8 @@ export default function AdminDashboard() {
 
       const { admin } = await adminResponse.json();
       const endpoint = editingGeofence
-        ? `http://localhost:8080/geofence/update/${editingGeofence.id}`
-        : "http://localhost:8080/geofence/add";
+        ? `https://be-project-pyax.onrender.com/geofence/update/${editingGeofence.id}`
+        : "https://be-project-pyax.onrender.com/geofence/add";
 
       const method = editingGeofence ? "PUT" : "POST";
 
@@ -166,7 +166,7 @@ export default function AdminDashboard() {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/geofence/delete/${geofenceId}`,
+        `https://be-project-pyax.onrender.com/geofence/delete/${geofenceId}`,
         {
           method: "DELETE",
         }

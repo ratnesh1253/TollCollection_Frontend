@@ -89,23 +89,26 @@ export default function RegistrationForm() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await fetch(`http://localhost:8080/user/register`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            first_name: formData.firstName,
-            last_name: formData.lastName,
-            email: formData.email,
-            password: formData.password,
-            phone_number: formData.phoneNumber,
-            vehicle_number: formData.vehicleNumber.toUpperCase(),
-            address_line1: formData.addressLine1,
-            city: formData.city,
-            state: formData.state,
-            country: formData.country,
-            pin: formData.pin,
-          }),
-        });
+        const response = await fetch(
+          `https://be-project-pyax.onrender.com/user/register`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              first_name: formData.firstName,
+              last_name: formData.lastName,
+              email: formData.email,
+              password: formData.password,
+              phone_number: formData.phoneNumber,
+              vehicle_number: formData.vehicleNumber.toUpperCase(),
+              address_line1: formData.addressLine1,
+              city: formData.city,
+              state: formData.state,
+              country: formData.country,
+              pin: formData.pin,
+            }),
+          }
+        );
 
         const result = await response.json();
         console.log("response in register: ", response);
