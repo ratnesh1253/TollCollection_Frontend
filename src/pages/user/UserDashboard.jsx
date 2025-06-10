@@ -139,16 +139,19 @@ export default function UserDashboard() {
     setProcessing(true);
 
     try {
-      const response = await fetch("http://localhost:8080/user/add-funds", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          amount: amount,
-        }),
-      });
+      const response = await fetch(
+        "https://be-project-pyax.onrender.com/user/add-funds",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            amount: amount,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to add funds");
