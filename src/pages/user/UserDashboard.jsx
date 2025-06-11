@@ -94,30 +94,6 @@ export default function UserDashboard() {
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
 
-  // const formatDateTime = (date, time) => {
-  //   // Split the date into parts
-  //   const [day, month, year] = date.split("-").map(Number);
-
-  //   // Create a properly formatted date string (YYYY-MM-DD)
-  //   const isoDate = `${year}-${month.toString().padStart(2, "0")}-${day
-  //     .toString()
-  //     .padStart(2, "0")}`;
-
-  //   // Combine with time and create Date object
-  //   const dateObj = new Date(`${isoDate}T${time}`);
-
-  //   // Format the date
-  //   return dateObj.toLocaleString("en-US", {
-  //     weekday: "long",
-  //     month: "long",
-  //     day: "numeric",
-  //     year: "numeric",
-  //     hour: "2-digit",
-  //     minute: "2-digit",
-  //     hour12: true,
-  //   });
-  // };
-
   const formatDateTime = (date, time) => {
     // Split the date into parts
     const [day, month, year] = date.split("-").map(Number);
@@ -130,11 +106,8 @@ export default function UserDashboard() {
     // Combine with time and create Date object
     const dateObj = new Date(`${isoDate}T${time}`);
 
-    // Add 5 hours and 30 minutes to convert to IST
-    dateObj.setMinutes(dateObj.getMinutes() + 330); // 5*60 + 30 = 330 minutes
-
     // Format the date
-    return dateObj.toLocaleString("en-IN", {
+    return dateObj.toLocaleString("en-US", {
       weekday: "long",
       month: "long",
       day: "numeric",
@@ -142,7 +115,6 @@ export default function UserDashboard() {
       hour: "2-digit",
       minute: "2-digit",
       hour12: true,
-      timeZone: "Asia/Kolkata", // Optional: reinforces IST formatting
     });
   };
 
